@@ -1,0 +1,249 @@
+/* ====== VARIÁVEIS DE TEMA ====== */
+:root {
+  --cor-primaria: #00bfa6;
+  --cor-secundaria: #a2d2ff;
+  --cor-acento: #cdb4db;
+  --cor-fundo-claro: #ffffff;
+  --cor-fundo-escuro: #1e1e2f;
+  --cor-texto-claro: #333;
+  --cor-texto-escuro: #f0f0f0;
+  --radius: 16px;
+  --sombra: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transicao: all 0.3s ease;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ====== RESET ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ====== BODY ====== */
+body {
+  background: var(--cor-fundo-claro);
+  color: var(--cor-texto-claro);
+  transition: var(--transicao);
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* DARK MODE (opcional, pode ser ativado com classe `dark`) */
+body.dark {
+  background: var(--cor-fundo-escuro);
+  color: var(--cor-texto-escuro);
+}
+
+/* ====== SPLASH SCREEN ====== */
+.splash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(
+    to bottom right,
+    var(--cor-primaria),
+    var(--cor-acento)
+  );
+  color: white;
+  font-size: 1.5rem;
+  animation: fadeOut 2s 2s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* ====== TÍTULOS E TEXTOS ====== */
+h1,
+h2,
+h3 {
+  margin: 16px 0;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+p,
+textarea,
+input,
+blockquote {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* ====== ÁREAS ====== */
+main {
+  padding: 16px;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* ====== NAV BOTTOM ====== */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  background: var(--cor-primaria);
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  box-shadow: var(--sombra);
+}
+
+.tab {
+  flex: 1;
+  padding: 12px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  transition: var(--transicao);
+}
+
+.tab.active {
+  background: var(--cor-acento);
+  color: black;
+  border-radius: var(--radius);
+}
+
+/* ====== CHECK-IN ====== */
+#botao-checkin {
+  background: var(--cor-primaria);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  margin: 16px 0;
+  cursor: pointer;
+  box-shadow: var(--sombra);
+  transition: var(--transicao);
+}
+
+#botao-checkin:hover {
+  background: #009e8a;
+}
+
+/* ====== HUMOR ====== */
+.humor-section {
+  margin-top: 10px;
+}
+
+.humores span {
+  font-size: 2rem;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.humores span:hover {
+  transform: scale(1.2);
+}
+
+/* ====== TEXTO E NOTA ====== */
+textarea,
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+/* ====== BARRA DE PROGRESSO ====== */
+.progress-bar {
+  background: #eee;
+  height: 20px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+#barra-progresso {
+  background: var(--cor-secundaria);
+  height: 100%;
+  width: 0%;
+  transition: width 0.5s ease;
+}
+
+/* ====== GRÁFICOS ====== */
+canvas {
+  width: 100% !important;
+  max-height: 300px;
+  margin: 20px 0;
+}
+
+/* ====== CALENDÁRIO ====== */
+#calendario-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin: 20px 0;
+}
+
+#calendario-container div {
+  height: 40px;
+  border-radius: 10px;
+  background: #eee;
+  text-align: center;
+  line-height: 40px;
+}
+
+#calendario-container .cumprido {
+  background: var(--cor-primaria);
+  color: white;
+  font-weight: bold;
+}
+
+/* ====== CONQUISTAS ====== */
+#lista-conquistas li {
+  background: #f1f1f1;
+  margin: 6px 0;
+  padding: 10px;
+  border-radius: var(--radius);
+  box-shadow: var(--sombra);
+}
+
+/* ====== PERFIL ====== */
+#foto-perfil {
+  width: 100px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+}
+
+#galeria-motivos ul {
+  padding-left: 20px;
+}
+
+blockquote {
+  font-style: italic;
+  margin-top: 20px;
+  color: #555;
+}
+
+/* ====== RESPONSIVO ====== */
+@media (min-width: 768px) {
+  main {
+    max-width: 600px;
+    margin: auto;
+  }
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SemRefri365</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <meta name="theme-color" content="#00bfa6" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon-192.png" />
+  <meta name="theme-color" content="#00bfa6" />
+</head>
+
+<body>
+  <!-- Splash Screen -->
+  <div id="splash-screen" class="splash">
+    <h1>SemRefri365 🚫🥤</h1>
+    <p>Comece sua jornada sem refrigerante!</p>
+  </div>
+
+  <!-- Barra de navegação -->
+  <nav class="tab-bar">
+    <button class="tab active" data-tab="dashboard">🏠</button>
+    <button class="tab" data-tab="checkin">✅</button>
+    <button class="tab" data-tab="progresso">📈</button>
+    <button class="tab" data-tab="calendario">📅</button>
+    <button class="tab" data-tab="conquistas">🏅</button>
+    <button class="tab" data-tab="perfil">👤</button>
+  </nav>
+
+  <!-- Abas -->
+  <main>
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="tab-content active">
+      <h2>Bem-vindo, <span id="username">Usuário</span>!</h2>
+      <p>Você está sem refrigerante há:</p>
+      <h1 id="dias-sem-refri">0 dias</h1>
+      <div class="progress-bar">
+        <div id="barra-progresso"></div>
+      </div>
+      <p>Dias restantes: <span id="dias-restantes">365</span></p>
+      <blockquote id="frase-motivacional">"Cada dia é uma vitória!"</blockquote>
+    </section>
+
+    <!-- CHECK-IN -->
+    <section id="checkin" class="tab-content">
+      <h2>Seu check-in diário</h2>
+      <button id="botao-checkin">Hoje não bebi refri ✅</button>
+      <div class="humor-section">
+        <p>Como está se sentindo hoje?</p>
+        <div class="humores">
+          <span data-humor="feliz">😊</span>
+          <span data-humor="normal">😐</span>
+          <span data-humor="triste">😞</span>
+        </div>
+      </div>
+      <textarea id="nota-pessoal" placeholder="Escreva algo sobre seu dia..."></textarea>
+    </section>
+
+    <!-- PROGRESSO -->
+    <section id="progresso" class="tab-content">
+      <h2>Seu progresso</h2>
+      <canvas id="grafico-pizza"></canvas>
+      <canvas id="grafico-linha"></canvas>
+      <div id="comparativo-mensal"></div>
+    </section>
+
+    <!-- CALENDÁRIO -->
+    <section id="calendario" class="tab-content">
+      <h2>Calendário</h2>
+      <div id="calendario-container"></div>
+      <p>Dias consecutivos: <strong id="dias-consecutivos">0</strong></p>
+    </section>
+
+    <!-- CONQUISTAS -->
+    <section id="conquistas" class="tab-content">
+      <h2>Suas Conquistas</h2>
+      <ul id="lista-conquistas">
+        <li>🎉 7 dias sem refri</li>
+        <li>🏆 15 dias</li>
+        <li>🔥 30 dias</li>
+        <li>💪 100 dias</li>
+        <li>🚀 200 dias</li>
+        <li>👑 365 dias</li>
+      </ul>
+      <p>Sons e animações aparecerão aqui quando conquistar algo!</p>
+    </section>
+
+    <!-- PERFIL -->
+    <section id="perfil" class="tab-content">
+      <h2>Seu Perfil</h2>
+      <img src="default-user.png" alt="Foto de perfil" id="foto-perfil" />
+      <input type="file" id="input-foto" />
+      <input type="text" id="nome-usuario" placeholder="Seu nome" />
+      <textarea id="objetivo-pessoal" placeholder="Qual o seu objetivo com o desafio?"></textarea>
+      <div id="galeria-motivos">
+        <h3>Motivos para continuar:</h3>
+        <ul>
+          <li>✅ Mais saúde</li>
+          <li>✅ Mais energia</li>
+          <li>✅ Pele mais bonita</li>
+          <li>✅ Menos açúcar no corpo</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+        .then(() => console.log("Service Worker registrado!"));
+    }
+  </script>
+</body>
+
+</html>
